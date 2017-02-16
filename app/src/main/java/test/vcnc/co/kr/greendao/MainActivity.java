@@ -15,8 +15,6 @@ import test.vcnc.co.kr.greendao.model.UserDao;
 
 public class MainActivity extends AppCompatActivity {
 
-    UserDao userDao;
-
     @BindView(R.id.text_view) TextView textView;
     @BindView(R.id.insert_button) Button insertButton;
     @BindView(R.id.read_button) Button readButton;
@@ -28,23 +26,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        DaoSession daoSession = ((TestApplication) getApplication()).getDaoSession();
-        userDao = daoSession.getUserDao();
 
         insertButton.setOnClickListener(v -> {
             User user = new User(null, textView.getText().toString());
-            userDao.insert(user);
         });
 
         readButton.setOnClickListener(v -> {
 
         });
 
-        readMultipleButton.setOnClickListener(v -> {
-            List<User> userList = userDao.loadAll();
-
-            textView.setText(userList.size() + "");
-        });
+        readMultipleButton.setOnClickListener(v -> {});
 
     }
 }

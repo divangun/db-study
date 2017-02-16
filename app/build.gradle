@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -17,6 +16,7 @@ android {
             enabled true
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,6 +27,11 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "4g"
     }
 }
 
@@ -39,8 +44,16 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
-    compile 'org.greenrobot:greendao:3.2.0'
 
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+//    // DAO
+//    compile 'com.hannesdorfmann.sqlbrite:dao:0.6.1'
+//
+//// Object Mapper
+//    compile 'com.hannesdorfmann.sqlbrite:annotations:0.6.1'
+//    annotationProcessor 'com.hannesdorfmann.sqlbrite:object-mapper:0.6.1'
+
 }
+

@@ -1,30 +1,26 @@
 package test.vcnc.co.kr.greendao.model;
 
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Transient;
-import org.greenrobot.greendao.annotation.Generated;
+import com.hannesdorfmann.sqlbrite.objectmapper.annotation.Column;
+import com.hannesdorfmann.sqlbrite.objectmapper.annotation.ObjectMappable;
 
-@Entity
+@ObjectMappable
 public class User {
 
-    @Id
+
+    @Column("id")
     private Long id;
 
+    @Column("name")
     private String name;
 
-    @Transient
+    @Column("count")
     private int tempUsageCount;
 
-    @Generated(hash = 873297011)
-    public User(Long id, String name) {
+    public User(Long id, String name, int tempUsageCount) {
         this.id = id;
         this.name = name;
-    }
-
-    @Generated(hash = 586692638)
-    public User() {
+        this.tempUsageCount = tempUsageCount;
     }
 
     public Long getId() {
