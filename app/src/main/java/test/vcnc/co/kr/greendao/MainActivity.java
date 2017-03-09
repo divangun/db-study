@@ -54,15 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 Dao<Moment, String> momentDao = TestApplication.getApplication().getHelper().getMomentDao();
                 Dao<ImageInfo, String> imageDao = TestApplication.getApplication().getHelper().getImageDao();
 
-                AndroidDatabaseResults androidDatabaseResults;
-
-                QueryBuilder<Moment, String> qb = momentDao.queryBuilder();
-                CloseableIterable<Moment> iterator = (CloseableIterable<Moment>) momentDao.iterator(qb.prepare());
-                AndroidDatabaseResults results = iterator.getrwa
-
-
-
-
                 List<Moment> momentList = momentDao.queryForAll();
                 StringBuilder sb = new StringBuilder();
 
