@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -13,58 +13,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="test.vcnc.co.kr.greendao.MainActivity">
 
-    <TextView
-        android:id="@+id/company_info"
+    <Button
+        android:id="@+id/view_moment_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/edit_text_user_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Hello World!"/>
-
-        <EditText
-            android:id="@+id/edit_text_company_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Hello World!"/>
-
-    </LinearLayout>
+        android:text="view Moment"/>
 
     <Button
-        android:id="@+id/insert_button"
-        android:layout_width="match_parent"
+        android:id="@+id/view_image_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Insert"/>
+        android:text="view Image"/>
+
+    <Button
+        android:id="@+id/add_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add Image"/>
+
+    <Button
+        android:id="@+id/add_moment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add Moment"/>
+
+    <Button
+        android:id="@+id/add_random_moment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add RandomMoment"/>
+
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/find_company"
-            android:layout_width="wrap_content"
+            android:id="@+id/remove_photo_text"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:text="Hello World!"/>
+            android:layout_marginRight="10dp"/>
 
         <Button
-            android:id="@+id/read_button"
+            android:id="@+id/remove_photo_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Read"/>
+            android:text="remove Button"/>
 
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/result_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="None"/>
 
 </LinearLayout>

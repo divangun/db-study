@@ -10,24 +10,28 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-public class UserOpenDatabaseHelper extends OrmLiteSqliteOpenHelper {
+public class MomentsOpenDatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "user";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     /**
      * The data access object used to interact with the Sqlite database to do C.R.U.D operations.
      */
-    private Dao<User, String> userDao;
+    private Dao<Moment, String> momentDao;
 
-    public UserOpenDatabaseHelper(Context context) {
+    private Dao<ImageInfo, String> imageDao;
+
+
+    public MomentsOpenDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, User.class);
+            TableUtils.createTable(connectionSource, ImageInfo.class);
+            TableUtils.createTable(connectionSource, Moment.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -36,17 +40,27 @@ public class UserOpenDatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
-            TableUtils.dropTable(connectionSource, User.class, false);
+            TableUtils.dropTable(connectionSource, ImageInfo.class, false);
+            TableUtils.dropTable(connectionSource, Moment.class, false);
+
             onCreate(database, connectionSource);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public Dao<User, String> getDao() throws SQLException {
-        if (userDao == null) {
-            userDao = getDao(User.class);
+    public Dao<Moment, String> getMomentDao() throws SQLException {
+        if (momentDao == null) {
+            momentDao = getDao(Moment.class);
         }
-        return userDao;
+        return momentDao;
+    }
+
+    public Dao<ImageInfo, String> getImageDao() throws SQLException {
+        if (imageDao == null) {
+            imageDao = getDao(ImageInfo.class);
+        }
+        return imageDao;
     }
 }
+

@@ -1,4 +1,4 @@
-package test.vcnc.co.kr.greendao.model;
+package test.vcnc.co.kr.greendao.model.test;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
